@@ -1,0 +1,34 @@
+--Create a personal store of choice database
+
+CREATE TABLE m_makeup (id INTEGER PRIMARY KEY, item TEXT, price INTEGER, section TEXT, rating INTEGER); 
+
+INSERT INTO m_makeup VALUES (1, "toner", 25, "skincare", 4.5);
+INSERT INTO m_makeup VALUES (2, "niacinamide", 21, "skincare", 4);
+INSERT INTO m_makeup VALUES (3, "moisturizer", 20, "skincare", 4);
+INSERT INTO m_makeup VALUES (4, "mascara", 18, "eyes", 4);
+INSERT INTO m_makeup VALUES (5, "eyeshadow", 28, "eyes", 3.5);
+INSERT INTO m_makeup VALUES (6, "sunscreen", 15, "skincare", 4.2);
+INSERT INTO m_makeup VALUES (7, "primer", 21, "face", 3.8);
+INSERT INTO m_makeup VALUES (8, "foundation", 32, "face", 4.2);
+INSERT INTO m_makeup VALUES (9, "bronzer", 25, "face", 3.7);
+INSERT INTO m_makeup VALUES (10, "lipgloss", 21, "lips", 4.8);
+INSERT INTO m_makeup VALUES (11, "concealer", 9, "face", 4.1);
+INSERT INTO m_makeup VALUES (12, "setting_spray", 12, "face", 4);
+INSERT INTO m_makeup VALUES (13, "powder", 28, "face", 4);
+INSERT INTO m_makeup VALUES (14, "brow_gel", 13, "brows", 4.3);
+INSERT INTO m_makeup VALUES (15, "lip_liner", 10, "lips", 5); 
+
+--Display the database ordered by price.
+SELECT * FROM m_makeup
+ORDER BY price asc;
+
+--What is the avg price in the skincare section?
+SELECT AVG(price) "avg skincare item price"
+FROM m_makeup
+WHERE section="skincare";
+
+--What are the 3 most popular items?
+SELECT item, price, rating 
+FROM m_makeup 
+ORDER BY rating desc
+LIMIT 3;
